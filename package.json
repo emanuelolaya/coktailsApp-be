@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "openai": "^4.0.0-beta.6",
     "oracledb": "^6.0.3"
   },
   "devDependencies": {
