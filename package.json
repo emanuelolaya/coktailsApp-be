@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon src/index.js"
+    "start": "npx nodemon src/index.js",
+    "dev": "nodemon src/index.js",
+    "dev:1": "node --watch src src/index.js"
   },
   "keywords": [],
   "author": "",
