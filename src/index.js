@@ -1,8 +1,10 @@
 const express = require('express')
-const { randomCocktail } = require('./services/openAIServices')
-const { testConnection } = require('./services/oracleServices')
+// const { findAvailablePort } = require('./utils/utils')
+const { randomCocktail } = require('./services/base/openAIBaseServices')
+const { testConnection, getVersion } = require('./services/base/oracleBaseServices')
+// require('dotenv').config()
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3002
 
 const app = express()
 app.disable('x-powered-by')
@@ -24,6 +26,11 @@ app.get('/api/cocktail/random', async (req, res) => {
 app.get('/api/oracle/test', async (req, res) => {
   const connection = await testConnection()
   res.json({ connection })
+})
+
+app.get('/api/oracle/version', async (req, res) => {
+  const version = await getVersion()
+  res.json({ version })
 })
 
 app.use((req, res) => {
