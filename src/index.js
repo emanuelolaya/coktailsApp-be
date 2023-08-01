@@ -2,9 +2,11 @@ const express = require('express')
 // const { findAvailablePort } = require('./utils/utils')
 const { randomCocktail } = require('./services/base/openAIBaseServices')
 const { testConnection, getVersion } = require('./services/base/oracleBaseServices')
-// require('dotenv').config()
+const { createPresignedUrlWithClient } = require('./services/awsServices')
 
-const PORT = process.env.PORT || 3002
+require('dotenv').config()
+
+const PORT = process.env.PORT || 3001
 
 const app = express()
 app.disable('x-powered-by')
@@ -12,10 +14,6 @@ app.disable('x-powered-by')
 
 app.get('/ping', (req, res) => {
   res.send('pong')
-})
-
-app.get('/api', (req, res) => {
-  res.json({ message: 'Hola desde el servidor!' })
 })
 
 app.get('/api/cocktail/random', async (req, res) => {
@@ -27,6 +25,21 @@ app.get('/api/oracle/test', async (req, res) => {
   const connection = await testConnection()
   res.json({ connection })
 })
+
+app.get('/api/test', async (req, res) => {
+  const url = await createPresignedUrlWithoutClient({
+    region: 'us-east-2',
+    bucket: 'cocktail-app-files',
+    key: '/imgs/tequila-blanco.png'
+  })
+  res.json(url)
+})
+
+// app.get("/api/ingredients", async (req, res) => {
+//   var person = db.model({ table: "people" });
+//   const connection = await testConnection();
+//   res.json({ connection });
+// });
 
 app.get('/api/oracle/version', async (req, res) => {
   const version = await getVersion()
