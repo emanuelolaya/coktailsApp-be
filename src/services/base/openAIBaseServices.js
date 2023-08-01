@@ -1,16 +1,5 @@
-const { OpenAI } = require('openai')
-
-const apiOpenAI = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-})
-
-function showOpenAIError (error) {
-  console.error(`OpenAi Error: 
-    status=${error.status}, 
-    message=${error.message}, 
-    code=${error.code}, 
-    type=${error.type} `)
-}
+const { apiOpenAI, showOpenAIError } = require('../../config/openAiConfig')
+// require('dotenv').config()
 
 const randomCocktail = async () => {
   try {
@@ -26,11 +15,7 @@ const randomCocktail = async () => {
     })
     return result?.choices[0]?.message?.content
   } catch (error) {
-    if (error instanceof OpenAI.APIError) {
-      showOpenAIError(error)
-    } else {
-      console.log(error)
-    }
+    showOpenAIError(error)
   }
 }
 
