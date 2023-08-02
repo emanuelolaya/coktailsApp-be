@@ -1,22 +1,38 @@
 const oracledb = require('oracledb')
 const { OraDbConfig } = require('../../config/oraDbConfig')
 
-async function getOracleConnection () {
-  try {
-    return await oracledb.getConnection(OraDbConfig)
-  } catch (error) {
-    console.error(error)
+const sworm = require('sworm')
+
+function getOracleConnection () {
+  const db = sworm.db()
+  const connectConfig = {
+    driver: 'oracle',
+    config: OraDbConfig
   }
+  // return oracledb.getConnection(OraDbConfig)
+  return db.connect(connectConfig)
 }
 
-async function testConnection () {
-  try {
-    const conn = await oracledb.getConnection(OraDbConfig)
-    console.log('Connection was successful!')
-    await conn.close()
-  } catch (error) {
-    console.error(error)
-  }
+function testConnection () {
+  // const conn = await oracledb.getConnection(OraDbConfig)
+  // console.log('Connection was successful!')
+  // await conn.close()
+  return new Promise((resolve, _reject) => {
+    const db = sworm.db()
+    const connectConfig = {
+      driver: 'oracle',
+      config: OraDbConfig
+    }
+    db.connect(connectConfig)
+      .then((conn) => {
+        console.log('Oracle connection successful!')
+        resolve(true)
+      })
+      .catch((error) => {
+        console.log('Oracle connection fail', error)
+        resolve(false)
+      })
+  })
 }
 
 async function getVersion () {

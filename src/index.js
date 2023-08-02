@@ -27,7 +27,7 @@ app.get('/api/oracle/test', async (req, res) => {
 })
 
 app.get('/api/test', async (req, res) => {
-  const url = await createPresignedUrlWithoutClient({
+  const url = await createPresignedUrlWithClient({
     region: 'us-east-2',
     bucket: 'cocktail-app-files',
     key: '/imgs/tequila-blanco.png'
