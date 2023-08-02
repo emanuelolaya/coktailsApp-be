@@ -2,7 +2,7 @@ const express = require('express')
 // const { findAvailablePort } = require('./utils/utils')
 const { randomCocktail } = require('./services/base/openAIBaseServices')
 const { testConnection, getVersion } = require('./services/base/oracleBaseServices')
-const { createPresignedUrlWithClient } = require('./services/awsServices')
+const { createPresignedUrlWithClient } = require('./services/base/awsServices')
 
 require('dotenv').config()
 
