@@ -114,7 +114,7 @@ app.post('/api/shoppinglist/remove', async (req, res) => {
   if (isNaN(userId) || isNaN(resourceId)) {
     return res.status(400).json({ error: 'Invalid IDs' })
   }
-  const result = await removeResourceFromMyBar(userId, resourceId)
+  const result = await removeResourceFromShoppingList(userId, resourceId)
   res.json({ result })
 })
 
