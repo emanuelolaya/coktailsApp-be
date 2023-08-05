@@ -1,0 +1,77 @@
+### PING
+GET http://localhost:3001/ping
+
+### GET ORACLE VERION
+GET http://localhost:3001/api/oracle/version
+
+### TEST ORACLE CONNECTION
+GET http://localhost:3001/api/oracle/test
+
+### GET ALL COCKTAILS
+GET http://localhost:3001/api/cocktails
+
+### GET COCKTAIL BY ID
+GET http://localhost:3001/api/cocktails/22
+
+### CREATE COCKTAIL
+POST http://localhost:3001/api/cocktails
+Content-Type: application/json
+
+{
+    "cocktail_name": "Mixx Black2111",
+    "cocktail_description": "111Refreshing cocktail with mint and lime",
+    "cocktail_glass_id": 47,
+    "cocktail_img_url": "/imgs/lime1111.png",
+    "cocktail_taste": "Sweet",
+    "cocktail_color": "Yellow",
+    "cocktail_alcohol_percentage": "201",
+    "cocktail_author_id": 2,
+    "cocktail_preparacion": "Mi111x all ingredients",
+    "cocktail_resources_json": [
+      {"id": 41, "cantidad": 5, "unidad_medida": 1},
+      {"id": 42, "cantidad": 2, "unidad_medida": 2},
+      {"id": 45, "cantidad": 1, "unidad_medida": 1}
+    ]
+}
+
+### GET MY BAR
+GET http://localhost:3001/api/mybar/user/1
+
+### GET MY SHOPPING LIST
+GET http://localhost:3001/api/shoppinglist/user/1
+
+### ADD RESOURCE TO MY BAR
+POST http://localhost:3001/api/mybar/add
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "resourceId": 49
+}
+
+### ADD RESOURCE TO SHOPPING LIST
+POST http://localhost:3001/api/shoppinglist/add
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "resourceId": 47
+}
+
+### REMOVE RESOURCE FROM MY BAR
+POST http://localhost:3001/api/mybar/remove
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "resourceId": 1
+}
+
+### REMOVE RESOURCE FROM SHOPPING LIST
+POST http://localhost:3001/api/shoppinglist/remove
+Content-Type: application/json
+
+{
+    "userId": 1,
+    "resourceId": 1
+}

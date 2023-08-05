@@ -21,7 +21,10 @@
     "sworm": "^3.8.1"
   },
   "eslintConfig": {
-    "extends": "standard"
+    "extends": "standard",
+    "rules": {
+      "camelcase": "off"
+    }
   },
   "devDependencies": {
     "nodemon": "^3.0.1",

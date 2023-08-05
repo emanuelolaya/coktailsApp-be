@@ -13,6 +13,7 @@ CREATE TABLE "APP_USER"."COCKTAIL_RESOURCE" (
   INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT
 ) TABLESPACE "DATA";
 
+
 INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE)
 VALUES ('Bar Spoon', 'Stirring and layering', 'The bar spoon is a long-handled spoon used in cocktail mixing. It is designed to reach the bottom of tall glasses and is essential for stirring cocktails and layering ingredients.', '123', '0', 1);
 
@@ -37,11 +38,9 @@ VALUES ('Muddler', 'Crush and extract flavors', 'The muddler is a long pestle-li
 INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE)
 VALUES ('Straws', 'Sipping made easy', 'Straws are used to drink cocktails comfortably. They come in various materials, including plastic, paper, or metal, and can be straight or bendy, depending on the preference and sustainability goals.', '123', '0', 1);
 
--- Agregar registro para "Bar Spoon with Masher" en la tabla "Equipments"
 INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE)
 VALUES ('Bar Spoon with Masher', 'Stirring and muddling', 'The bar spoon with masher combines the functionality of a bar spoon and a muddler, making it convenient for stirring and muddling ingredients in cocktails.', '123', '0', 1);
 
--- Agregar registro para "Hawthorne Strainer" en la tabla "COCKTAIL_RESOURCE"
 INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE)
 VALUES ('Hawthorne Strainer', 'Ideal for cocktail shakers', 'The Hawthorne strainer is a type of cocktail strainer used specifically with the cocktail shaker. It has a spring-like coil that fits over the top of the shaker to strain out ice and solid ingredients.', '123', '0', 1);
 
@@ -68,3 +67,10 @@ VALUES ('Garnish Tray', 'Organized garnishing', 'The garnish tray is a container
 
 INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION)
 VALUES ('Wine Opener', 'Uncorking wine bottles', 'The wine opener, also known as a corkscrew, is used for removing corks from wine bottles, allowing for the easy serving of wine-based cocktails and other drinks.', '123', '0', 1);
+
+
+INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE) VALUES ('Amaretto', 'Sweet italian almond liqueur', 'Amaretto Description', '123', '21', '3')
+INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE) VALUES ('7up', '7up', '7up', '123', '0', '4')
+INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE) VALUES ('Triple sec', 'Triple sec', 'Triple sec', '123', '20', '3')
+INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE) VALUES ('Tequila Reposado', 'Tequila Reposado', 'Tequila Reposado', '123', '40', '3')
+INSERT INTO "APP_USER"."COCKTAIL_RESOURCE" (NAME, SHORT_DESCRIPTION, DESCRIPTION, IMG_URL, ALCOHOL_PERCENTAGE, TYPE) VALUES ('Tequila', 'Tequila', 'Tequila', '123', '40', '3')

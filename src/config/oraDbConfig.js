@@ -1,4 +1,7 @@
 require('dotenv').config()
+const ORA_CONFIG = {
+  PAGE_SIZE: 200
+}
 
 const OraDbConfig = {
   user: process.env.NODE_ORACLEDB_USER,
@@ -8,6 +11,13 @@ const OraDbConfig = {
   pool: true
 }
 
+const swormDbConfig = {
+  driver: 'oracle',
+  config: OraDbConfig
+}
+
 module.exports = {
-  OraDbConfig
+  OraDbConfig,
+  swormDbConfig,
+  ORA_CONFIG
 }

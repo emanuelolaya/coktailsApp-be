@@ -1,4 +1,4 @@
-const { apiOpenAI, showOpenAIError } = require('../../config/openAiConfig')
+const { apiOpenAI, showOpenAIError } = require('../config/openAiConfig')
 // require('dotenv').config()
 
 const randomCocktail = async () => {

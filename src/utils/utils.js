@@ -28,5 +28,6 @@ function sleep (ms) {
 }
 
 module.exports = {
-  sleep, findAvailablePort
+  sleep,
+  findAvailablePort
 }
