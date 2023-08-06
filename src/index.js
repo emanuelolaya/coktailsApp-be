@@ -1,10 +1,19 @@
-/* eslint-disable camelcase */
 const express = require('express')
 // const { findAvailablePort } = require('./utils/utils')
 const { randomCocktail } = require('./services/openAIServices')
 const { testConnection, getVersion } = require('./services/oracleServices')
-const { getAllCocktails, createCocktail, getCocktailById, getMyBar, getMyShoppingList, addResourceToMyBar, addResourceToShoppingList, removeResourceFromMyBar, removeResourceFromShoppingList } = require('./services/oracleServices')
-const { createPresignedUrlWithClient } = require('./services/awsServices')
+const {
+  getAllCocktails,
+  createCocktail,
+  getCocktailById,
+  getMyBar,
+  getMyShoppingList,
+  addResourceToMyBar,
+  addResourceToShoppingList,
+  removeResourceFromMyBar,
+  removeResourceFromShoppingList
+} = require('./services/oracleServices')
+const { createPresignedUrlWithoutClient } = require('./services/awsServices')
 
 require('dotenv').config()
 
@@ -43,7 +52,18 @@ app.get('/api/cocktails/:id', async (req, res) => {
 })
 
 app.post('/api/cocktails', async (req, res) => {
-  const { cocktail_name, cocktail_description, cocktail_glass_id, cocktail_img_url, cocktail_taste, cocktail_color, cocktail_alcohol_percentage, cocktail_author_id, cocktail_preparacion, cocktail_resources_json } = req.body
+  const {
+    cocktail_name,
+    cocktail_description,
+    cocktail_glass_id,
+    cocktail_img_url,
+    cocktail_taste,
+    cocktail_color,
+    cocktail_alcohol_percentage,
+    cocktail_author_id,
+    cocktail_preparacion,
+    cocktail_resources_json
+  } = req.body
   const cocktail = {
     name: cocktail_name,
     description: cocktail_description,
@@ -124,12 +144,12 @@ app.get('/api/cocktail/random', async (req, res) => {
 })
 
 app.get('/api/test', async (req, res) => {
-  const url = await createPresignedUrlWithClient({
+  const url = await createPresignedUrlWithoutClient({
     region: 'us-east-2',
     bucket: 'cocktail-app-files',
-    key: '/imgs/tequila-blanco.png'
+    key: 'imgs/no-image.png'
   })
-  res.json(url)
+  res.json({ url })
 })
 
 app.use((req, res) => {

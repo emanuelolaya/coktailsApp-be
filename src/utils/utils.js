@@ -11,7 +11,7 @@ function findAvailablePort (desiredPort) {
       })
     })
 
-    server.on('error', (err) => {
+    server.on('error', err => {
       if (err.code === 'EADDRINUSE') {
         findAvailablePort(0).then(port => resolve(port))
       } else {
@@ -22,7 +22,7 @@ function findAvailablePort (desiredPort) {
 }
 
 function sleep (ms) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(resolve, ms)
   })
 }
